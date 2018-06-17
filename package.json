@@ -1,0 +1,15 @@
+{
+  "name": "finanza",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ashik Nesin <mail@ashiknesin.com>",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.6.9"
+  }
+}
