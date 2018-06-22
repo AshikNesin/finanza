@@ -82,8 +82,37 @@ const daysUntilDebtFree = ({ amortizationList = [] }) => {
   return dayjs(lastPayment).diff(dayjs(), "days");
 };
 
+// ***************
+// Compound Interest
+// ***************
+
+// Equation: A = p * [[1 + (r/n)] ^ nt]
+// Where:
+// A = amount after time t
+// p = principal amount (your initial investment)
+// r = annual interest rate (divide the number by 100)
+// t = number of years
+// n = number of times the interest is compounded per year
+
+
+const calculateCompoundInterest = ({
+  principal = 0,
+  annualInterestRate = 0,
+  noOfYears = 0,
+  compoundingTimesPerYear = 0
+}) => {
+  const PRINCIPAL = principal;
+  const ANNUAL_INTEREST_RATE = annualInterestRate;
+  const NO_OF_YEARS = noOfYears;
+  const COMPUDING_TIMES_PER_YEAR = compoundingTimesPerYear;
+  const amountAfterTime = (PRINCIPAL* Math.pow((1 + (ANNUAL_INTEREST_RATE/(COMPUDING_TIMES_PER_YEAR*100))), (COMPUDING_TIMES_PER_YEAR*NO_OF_YEARS)));
+  return amountAfterTime;
+};
+
+
 module.exports = {
   calculateMonthlyPayment,
   calculateAmortization,
-  daysUntilDebtFree
+  daysUntilDebtFree,
+  calculateCompoundInterest
 };
